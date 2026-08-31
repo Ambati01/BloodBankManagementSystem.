@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-4">
+
+    <h2 class="text-center text-danger mb-4">
+        🩸 Blood Bank Management System
+    </h2>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="card bg-primary text-white shadow">
+                <div class="card-body text-center">
+                    <h5>Total Donors</h5>
+                    <h1>@ViewBag.TotalDonors</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card bg-success text-white shadow">
+                <div class="card-body text-center">
+                    <h5>Blood Units</h5>
+                    <h1>@ViewBag.TotalBloodStock</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card bg-danger text-white shadow">
+                <div class="card-body text-center">
+                    <h5>Blood Requests</h5>
+                    <h1>@ViewBag.TotalRequests</h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <hr />
+
+    <div class="row mt-4">
+
+        <div class="col-md-3 mb-3">
+            <a asp-controller="Donor" asp-action="Index" class="btn btn-danger w-100 p-3">
+                👨‍⚕️ Donors
+            </a>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <a asp-controller="BloodStock" asp-action="Index" class="btn btn-primary w-100 p-3">
+                🩸 Blood Stock
+            </a>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <a asp-controller="BloodRequest" asp-action="Index" class="btn btn-success w-100 p-3">
+                📋 Blood Requests
+            </a>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <a asp-controller="Donor" asp-action="Search" class="btn btn-warning w-100 p-3">
+                🔍 Search Donor
+            </a>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,59 @@
+﻿@model BloodBankManagementSystem.Models.Donor
+
+@{
+    ViewData["Title"] = "Edit Donor";
+}
+
+<h2 class="text-danger">Edit Donor</h2>
+
+<form asp-action="Edit">
+
+    <input type="hidden" asp-for="DonorId" />
+
+    <div class="mb-3">
+        <label>Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Age</label>
+        <input asp-for="Age" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Gender</label>
+        <select asp-for="Gender" class="form-control">
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Blood Group</label>
+        <input asp-for="BloodGroup" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Contact</label>
+        <input asp-for="Contact" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Address</label>
+        <textarea asp-for="Address" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label>Last Donation</label>
+        <input asp-for="LastDonation" type="date" class="form-control" />
+    </div>
+
+    <button class="btn btn-success">Update</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+
+</form>

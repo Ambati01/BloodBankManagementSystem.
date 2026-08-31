@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BloodBankManagementSystem.Models.BloodStock>
+
+<h2>Blood Stock List</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Add Blood Stock
+    </a>
+</p>
+
+<table class="table table-bordered">
+
+    <thead class="table-danger">
+
+        <tr>
+            <th>Stock ID</th>
+            <th>Blood Group</th>
+            <th>Units</th>
+            <th>Action</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.StockId</td>
+                <td>@item.BloodGroup</td>
+                <td>@item.UnitsAvailable</td>
+
+                <td>
+
+                    <a asp-action="Edit"
+                       asp-route-id="@item.StockId"
+                       class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@item.StockId"
+                       class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

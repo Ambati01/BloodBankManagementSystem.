@@ -1,0 +1,78 @@
+﻿@model IEnumerable<BloodBankManagementSystem.Models.Donor>
+
+@{
+    ViewData["Title"] = "Search Donor";
+}
+
+<h2 class="text-danger">Search Donor By Blood Group</h2>
+
+<form asp-action="Search" method="post">
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <select name="bloodGroup" class="form-control">
+
+                <option value="">Select Blood Group</option>
+
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+                <option>O+</option>
+                <option>O-</option>
+
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <button class="btn btn-danger">
+                Search
+            </button>
+        </div>
+
+    </div>
+
+</form>
+
+<br />
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered">
+
+        <thead class="table-danger">
+
+            <tr>
+
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Blood Group</th>
+                <th>Contact</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.Name</td>
+                    <td>@item.Age</td>
+                    <td>@item.Gender</td>
+                    <td>@item.BloodGroup</td>
+                    <td>@item.Contact</td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+}

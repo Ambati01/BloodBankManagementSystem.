@@ -1,0 +1,79 @@
+﻿@model IEnumerable<BloodBankManagementSystem.Models.BloodRequest>
+
+<h2>Blood Requests</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        New Request
+    </a>
+</p>
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<table class="table table-bordered">
+
+    <thead class="table-danger">
+
+        <tr>
+
+            <th>ID</th>
+            <th>Patient</th>
+            <th>Hospital</th>
+            <th>Blood Group</th>
+            <th>Units</th>
+            <th>Status</th>
+            <th>Action</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.RequestId</td>
+                <td>@item.PatientName</td>
+                <td>@item.HospitalName</td>
+                <td>@item.BloodGroup</td>
+                <td>@item.UnitsRequired</td>
+                <td>@item.Status</td>
+
+                <td>
+
+                    <td>
+
+                        <a asp-action="Approve"
+                           asp-route-id="@item.RequestId"
+                           class="btn btn-success btn-sm">
+                            Approve
+                        </a>
+
+                        <a asp-action="Edit"
+                           asp-route-id="@item.RequestId"
+                           class="btn btn-warning btn-sm">
+                            Edit
+                        </a>
+
+                        <a asp-action="Delete"
+                           asp-route-id="@item.RequestId"
+                           class="btn btn-danger btn-sm">
+                            Delete
+                        </a>
+
+                    </td>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
