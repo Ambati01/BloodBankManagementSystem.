@@ -1,8 +1,10 @@
 using BloodBankManagementSystem.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BloodBankManagementSystem.Controllers
 {
+    [Authorize(Roles = "Admin,Staff")]
     public class HomeController : Controller
     {
         private readonly BloodBankDbContext _context;

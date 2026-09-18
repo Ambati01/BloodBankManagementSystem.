@@ -7,6 +7,7 @@ namespace BloodBankManagementSystem.Data
         public BloodBankDbContext(DbContextOptions<BloodBankDbContext> options) : base(options)
         {
         }
+        public DbSet<User> Users { get; set; }
         public DbSet<Donor> Donors { get; set; }
 
         public DbSet<BloodStock> BloodStocks { get; set; }

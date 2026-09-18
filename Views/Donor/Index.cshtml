@@ -4,63 +4,118 @@
     ViewData["Title"] = "Donor List";
 }
 
-<h2 class="text-center text-danger">Blood Donor List</h2>
-    
-    <p>
-        <a asp-action="Create" class="btn btn-primary">
-            Add New Donor
-        </a>
+<div class="container mt-4">
 
-        <a asp-action="Search" class="btn btn-success">
-            Search Donor
-        </a>
-    </p>
+    <h2 class="text-center text-danger mb-4">
+        Blood Donor List
+    </h2>
 
 
-<table class="table table-bordered table-striped">
-    <thead class="table-danger">
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Blood Group</th>
-            <th>Contact</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Last Donation</th>
-            <th>Action</th>
-        </tr>
-    </thead>
+    <div class="mb-3">
 
-    <tbody>
-        @foreach (var item in Model)
+        @* Only Admin and Staff can add donors *@
+        @if (User.IsInRole("Admin") || User.IsInRole("Staff"))
         {
-            <tr>
-                <td>@item.DonorId</td>
-                <td>@item.Name</td>
-                <td>@item.Age</td>
-                <td>@item.Gender</td>
-                <td>@item.BloodGroup</td>
-                <td>@item.Contact</td>
-                <td>@item.Email</td>
-                <td>@item.Address</td>
-                <td>@item.LastDonation?.ToShortDateString()</td>
-
-                <td>
-                    <a asp-action="Edit"
-                       asp-route-id="@item.DonorId"
-                       class="btn btn-warning btn-sm">
-                        Edit
-                    </a>
-
-                    <a asp-action="Delete"
-                       asp-route-id="@item.DonorId"
-                       class="btn btn-danger btn-sm">
-                        Delete
-                    </a>
-                </td>
-            </tr>
+            <a asp-action="Create" class="btn btn-primary">
+                Add New Donor
+            </a>
         }
-    </tbody>
-</table>
+
+
+        @* Admin, Staff and Hospital can search *@
+        @if (User.IsInRole("Admin") ||
+             User.IsInRole("Staff") ||
+             User.IsInRole("Hospital"))
+        {
+            <a asp-action="Search" class="btn btn-success">
+                Search Donor
+            </a>
+        }
+
+    </div>
+
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-danger">
+
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Blood Group</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Last Donation</th>
+
+                @if (User.IsInRole("Admin") ||
+                     User.IsInRole("Staff") ||
+                     User.IsInRole("Donor"))
+                {
+                    <th>Action</th>
+                }
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.DonorId</td>
+                    <td>@item.Name</td>
+                    <td>@item.Age</td>
+                    <td>@item.Gender</td>
+                    <td>@item.BloodGroup</td>
+                    <td>@item.Contact</td>
+                    <td>@item.Email</td>
+                    <td>@item.Address</td>
+                    <td>@item.LastDonation?.ToShortDateString()</td>
+
+
+                    <td>
+
+                        @* Admin and Staff can edit any donor *@
+                        @if (User.IsInRole("Admin") ||
+                             User.IsInRole("Staff"))
+                        {
+                            <a asp-action="Edit"
+                               asp-route-id="@item.DonorId"
+                               class="btn btn-warning btn-sm">
+                                Edit
+                            </a>
+
+                            <a asp-action="Delete"
+                               asp-route-id="@item.DonorId"
+                               class="btn btn-danger btn-sm">
+                                Delete
+                            </a>
+                        }
+
+
+                        @* Donor can edit their own profile *@
+                        @if (User.IsInRole("Donor"))
+                        {
+                            <a asp-action="Edit"
+                               asp-route-id="@item.DonorId"
+                               class="btn btn-warning btn-sm">
+                                Edit My Profile
+                            </a>
+                        }
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

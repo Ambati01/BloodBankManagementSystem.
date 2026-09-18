@@ -19,6 +19,16 @@ builder.Services.AddScoped<IBloodStockService, BloodStockService>();
 
 builder.Services.AddScoped<IBloodRequestService, BloodRequestService>();
 
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddAuthentication("CookieAuth")
+    .AddCookie("CookieAuth", options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+    });
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -35,14 +45,13 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Account}/{action=Login}/{id?}")
     .WithStaticAssets();
-
 
 app.Run();

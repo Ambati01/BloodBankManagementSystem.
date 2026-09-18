@@ -1,0 +1,220 @@
+﻿@model List<BloodBankManagementSystem.Models.User>
+
+@{
+    ViewData["Title"] = "Manage Users";
+}
+
+<div class="container mt-4">
+
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2>Manage Users</h2>
+
+        <div>
+            <a asp-action="CreateUser"
+               class="btn btn-danger">
+                + Create User
+            </a>
+
+            <a asp-controller="Home"
+               asp-action="Index"
+               class="btn btn-secondary">
+                Back to Dashboard
+            </a>
+        </div>
+
+    </div>
+
+
+    <!-- Success Message -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+
+    <!-- Error Message -->
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+
+    <!-- Users Table -->
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-hover">
+
+            <thead class="table-dark">
+
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Created Date</th>
+                    <th>Actions</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var user in Model)
+                {
+                    <tr>
+
+                        <!-- ID -->
+                        <td>
+                            @user.UserId
+                        </td>
+
+
+                        <!-- Name -->
+                        <td>
+                            @user.FullName
+                        </td>
+
+
+                        <!-- Email -->
+                        <td>
+                            @user.Email
+                        </td>
+
+
+                        <!-- Role -->
+                        <td>
+
+                            <form asp-action="ChangeRole"
+                                  method="post"
+                                  class="d-flex gap-2">
+
+                                @Html.AntiForgeryToken()
+
+                                <input type="hidden"
+                                       name="userId"
+                                       value="@user.UserId" />
+
+                                <select name="role"
+                                        class="form-select form-select-sm">
+
+                                    @if (user.Role == "Admin")
+                                    {
+                                        <option value="Admin" selected>Admin</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Admin">Admin</option>
+                                    }
+
+                                    @if (user.Role == "Staff")
+                                    {
+                                        <option value="Staff" selected>Staff</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Staff">Staff</option>
+                                    }
+
+                                    @if (user.Role == "Hospital")
+                                    {
+                                        <option value="Hospital" selected>Hospital</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Hospital">Hospital</option>
+                                    }
+
+                                    @if (user.Role == "Donor")
+                                    {
+                                        <option value="Donor" selected>Donor</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Donor">Donor</option>
+                                    }
+
+                                </select>
+
+                                <button type="submit"
+                                        class="btn btn-primary btn-sm">
+                                    Save
+                                </button>
+
+                            </form>
+
+                        </td>
+
+
+                        <!-- Status -->
+                        <td>
+
+                            @if (user.IsActive)
+                            {
+                                <span class="badge bg-success">
+                                    Active
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">
+                                    Inactive
+                                </span>
+                            }
+
+                        </td>
+
+
+                        <!-- Created Date -->
+                        <td>
+                            @user.CreatedDate.ToString("dd-MM-yyyy")
+                        </td>
+
+
+                        <!-- Actions -->
+                        <td>
+
+                            <form asp-action="ToggleStatus"
+                                  method="post">
+
+                                @Html.AntiForgeryToken()
+
+                                <input type="hidden"
+                                       name="userId"
+                                       value="@user.UserId" />
+
+                                @if (user.IsActive)
+                                {
+                                    <button type="submit"
+                                            class="btn btn-danger btn-sm">
+                                        Deactivate
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button type="submit"
+                                            class="btn btn-success btn-sm">
+                                        Activate
+                                    </button>
+                                }
+
+                            </form>
+
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
