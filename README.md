@@ -1,247 +1,382 @@
 # 🩸 Blood Bank Management System
 
-A web-based Blood Bank Management System developed using **ASP.NET Core MVC**, **Entity Framework Core**, and **SQL Server**. The system helps manage blood donors, blood inventory, and blood requests efficiently through a user-friendly interface.
+A web-based **Blood Bank Management System** developed using **ASP.NET Core MVC, C#, Entity Framework Core, and SQL Server**.
+
+The application helps manage blood donors, blood stock, blood requests, and user authentication through a structured MVC architecture with a responsive user interface.
 
 ---
 
-# 📌 Project Overview
+## 📌 Project Overview
 
-The Blood Bank Management System is designed to digitize blood bank operations by maintaining donor information, blood stock, and blood requests in a centralized database. The application minimizes manual work and provides quick access to blood availability.
+The Blood Bank Management System is designed to digitize and simplify common blood bank operations.
 
----
+The system provides functionality for:
 
-# ✨ Features
-
-- ✅ Add New Donors
-- ✅ Update Donor Information
-- ✅ Delete Donor Records
-- ✅ View Donor List
-- ✅ Manage Blood Stock
-- ✅ Add Blood Units
-- ✅ Update Blood Availability
-- ✅ Blood Request Management
-- ✅ Search by Blood Group
-- ✅ Form Validation
-- ✅ Responsive User Interface
-- ✅ CRUD Operations
+* 👤 User registration and login
+* 🔐 Authentication and authorization
+* 👨‍⚕️ Donor management
+* 🩸 Blood stock management
+* 📋 Blood request management
+* 👨‍💼 Admin user management
+* 🔎 Blood group-based search
+* ✅ Form validation
+* 🗄️ Database management using Entity Framework Core
 
 ---
 
-# 🛠 Technologies Used
+## ✨ Features
 
-| Technology | Purpose |
-|------------|----------|
-| ASP.NET Core MVC | Web Application Framework |
-| C# | Backend Programming |
-| Entity Framework Core | ORM |
-| SQL Server | Database |
-| HTML5 | Structure |
-| CSS3 | Styling |
-| Bootstrap | Responsive UI |
-| JavaScript | Client-side Functionality |
-| Visual Studio 2022 | IDE |
-| Git & GitHub | Version Control |
+### 🔐 User Authentication
+
+* User Registration
+* User Login
+* Logout
+* Cookie-based authentication
+* Role-based authorization
+* Access denied page
+
+### 👨‍⚕️ Donor Management
+
+* Add new donor
+* View donor list
+* Edit donor information
+* Delete donor records
+* Donor validation
+
+### 🩸 Blood Stock Management
+
+* Add blood stock
+* View available blood stock
+* Update blood stock
+* Delete blood stock
+* Search blood availability by blood group
+
+### 📋 Blood Request Management
+
+* Create blood requests
+* View blood requests
+* Update request information
+* Delete requests
+* Manage requested blood groups and units
+
+### 👨‍💼 Admin Management
+
+* Admin authorization
+* Manage registered users
+* Role-based access to administrative features
 
 ---
 
-# 🏗 System Architecture
+## 🛠️ Technologies Used
 
+| Technology                | Purpose                   |
+| ------------------------- | ------------------------- |
+| **C#**                    | Backend Programming       |
+| **ASP.NET Core MVC**      | Web Application Framework |
+| **Entity Framework Core** | ORM & Database Operations |
+| **SQL Server**            | Database                  |
+| **Razor Views**           | User Interface            |
+| **HTML5**                 | Web Structure             |
+| **CSS3**                  | Styling                   |
+| **Bootstrap**             | Responsive UI             |
+| **JavaScript**            | Client-side functionality |
+| **Dependency Injection**  | Service Management        |
+| **Git & GitHub**          | Version Control           |
+| **Visual Studio**         | Development Environment   |
+
+---
+
+## 🏗️ Architecture
+
+The project follows the **MVC architecture** and uses a service layer for business logic.
+
+```text
+                    User
+                      │
+                      ▼
+              Razor Views
+                      │
+                      ▼
+                Controllers
+                      │
+                      ▼
+                  Services
+                      │
+                      ▼
+            Entity Framework Core
+                      │
+                      ▼
+                SQL Server
 ```
-User
-   │
-   ▼
-Views (Razor)
-   │
-   ▼
-Controllers
-   │
-   ▼
-Services
-   │
-   ▼
-Entity Framework Core
-   │
-   ▼
-SQL Server Database
-```
 
 ---
 
-# 🗃 Database Tables
+## 🗃️ Database
 
-- Donors
-- BloodStocks
-- BloodRequests
+The application uses **SQL Server** with **Entity Framework Core Code First**.
+
+Main entities include:
+
+* `User`
+* `Donor`
+* `BloodStock`
+* `BloodRequest`
+
+Database migrations are included in the project.
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
-```
+```text
 BloodBankManagementSystem
 │
 ├── Controllers
-├── Models
-├── Views
+│   ├── AccountController.cs
+│   ├── AdminController.cs
+│   ├── BloodRequestController.cs
+│   ├── BloodStockController.cs
+│   ├── DonorController.cs
+│   └── HomeController.cs
+│
 ├── Data
+│   └── BloodBankDbContext.cs
+│
+├── Models
+│   ├── User.cs
+│   ├── Donor.cs
+│   ├── BloodStock.cs
+│   ├── BloodRequest.cs
+│   ├── LoginViewModel.cs
+│   └── RegisterViewModel.cs
+│
 ├── Services
+│   ├── DonorService.cs
+│   ├── BloodStockService.cs
+│   ├── BloodRequestService.cs
+│   └── UserService.cs
+│
 ├── Migrations
+│
+├── Views
+│
 ├── wwwroot
-├── appsettings.json
+│
 ├── Program.cs
+├── appsettings.json
+├── BloodBankManagementSystem.csproj
 └── README.md
 ```
 
 ---
 
-# ⚙ Prerequisites
+## ⚙️ Prerequisites
 
-Before running the project, make sure you have:
+Before running the project, install:
 
-- Visual Studio 2022
-- .NET SDK
-- SQL Server
-- SQL Server Management Studio (SSMS)
+* Visual Studio 2022
+* .NET 10 SDK
+* SQL Server
+* SQL Server Management Studio (SSMS)
 
 ---
 
-# 🚀 Installation
+## 🚀 How to Run the Project
 
-### Configure Database
+### 1. Clone the Repository
 
-Update the connection string inside
-
+```bash
+git clone https://github.com/Ambati01/BloodBankManagementSystem.git
 ```
+
+### 2. Open the Project
+
+Open:
+
+```text
+BloodBankManagementSystem.slnx
+```
+
+using Visual Studio.
+
+### 3. Configure SQL Server
+
+Open:
+
+```text
 appsettings.json
 ```
 
-### Apply Migrations
+Update the `DefaultConnection` connection string according to your SQL Server configuration.
+
+> **Important:** Do not upload real database passwords or other sensitive credentials to GitHub.
+
+### 4. Apply Entity Framework Migrations
+
+Open **Package Manager Console** in Visual Studio and run:
 
 ```powershell
 Update-Database
 ```
+
+Alternatively, using the .NET CLI:
+
+```bash
+dotnet ef database update
+```
+
+### 5. Run the Application
+
+Run the project from Visual Studio:
+
+```text
+Ctrl + F5
+```
+
+or:
+
+```bash
+dotnet run
+```
+
+The application will open in your browser.
+
 ---
 
-# 📷 Project Screenshots
+## 🔐 Authentication Flow
 
-## 🏠 Home Page
+```text
+Register
+   ↓
+Create User Account
+   ↓
+Login
+   ↓
+Authentication
+   ↓
+Authorization
+   ↓
+Access Application Features
+```
 
-The landing page of the Blood Bank Management System.
-
-![Home Page](Screenshots/Home.png)
+Administrative features are protected using role-based authorization.
 
 ---
-## 📊 Dashboard
 
-Displays an overview of blood stock and system information.
+## 📷 Project Screenshots
+
+### 📊 Dashboard
 
 ![Dashboard](Screenshots/Dashboard.png)
 
----
-## 👨‍⚕️ Donor Management
-
-View all registered blood donors.
+### 👨‍⚕️ Donor List
 
 ![Donor List](Screenshots/DonorList.png)
 
---
-## ➕ Add Donor
-
-Register a new blood donor.
+### ➕ Add Donor
 
 ![Add Donor](Screenshots/AddDonor.png)
 
----
-## ✏️ Edit Donor
-
-Update donor information.
+### ✏️ Edit Donor
 
 ![Edit Donor](Screenshots/EditDonor.png)
 
---
-## 🩸 Blood Stock
-
-Manage available blood units.
+### 🩸 Blood Stock
 
 ![Blood Stock](Screenshots/BloodStock.png)
 
---
-## ➕ Add Blood Stock
-
-Add new blood units to the inventory.
+### ➕ Add Blood Stock
 
 ![Add Blood Stock](Screenshots/AddBloodStock.png)
 
---
-## ➕ Add Blood Stock
+### 📋 Blood Request
 
-Add new blood units to the inventory.
+![Blood Request](Screenshots/BloodRequest.png)
 
-![Add Blood Stock](Screenshots/AddBloodStock.png)
+### ➕ Add Blood Request
 
---
-## ➕ Add Blood Stock
+![Add Blood Request](Screenshots/AddBloodRequest.png)
 
-Add new blood units to the inventory.
+### 🗑️ Delete Confirmation
 
-![Add Blood Stock](Screenshots/AddBloodStock.png)
-
---
-
-## 🗑 Delete Confirmation
-
-Confirmation before deleting a record.
-
-![Delete](Screenshots/DeleteConfirmation.png)
-
----
-# 📈 Future Enhancements
-
--Futures to be Implemented 
-
-- User Authentication
-- Admin Dashboard
-- Email Notifications
-- SMS Notifications
-- Hospital Integration
-- Report Generation
-- Cloud Deployment (Azure)
-- Blood Donation Camp Module
+![Delete Confirmation](Screenshots/DeleteConfirmation.png)
 
 ---
 
-# 📚 Learning Outcomes
+## 📚 Key Concepts Implemented
 
-During the development of this project, I learned:
+This project demonstrates practical implementation of:
 
-- ASP.NET Core MVC Architecture
-- Entity Framework Core (Code First)
-- SQL Server Database Design
-- CRUD Operations
-- Dependency Injection
-- Model Validation
-- Razor Views
-- Bootstrap UI Design
-- Git & GitHub Version Control
+* ASP.NET Core MVC
+* C# and OOP concepts
+* MVC Architecture
+* Entity Framework Core
+* Code First Migrations
+* SQL Server
+* CRUD Operations
+* Dependency Injection
+* Service Layer
+* Authentication
+* Authorization
+* Role-based access control
+* Model Validation
+* Razor Views
+* Bootstrap
+* Exception Handling
+* Git & GitHub
 
 ---
 
-# 👨‍💻 Author
+## 🎯 Future Enhancements
+
+Possible future improvements include:
+
+* 📧 Email notifications
+* 📱 SMS notifications
+* 🏥 Hospital integration
+* 📊 Advanced report generation
+* ☁️ Cloud deployment
+* 🩸 Blood donation camp management
+* 📈 Advanced analytics dashboard
+
+---
+
+## 🎓 Learning Outcomes
+
+Through this project, I gained practical experience in developing a complete web application using **ASP.NET Core MVC**.
+
+I gained hands-on experience with:
+
+* Designing MVC-based applications
+* Building CRUD functionality
+* Working with SQL Server
+* Using Entity Framework Core
+* Implementing Dependency Injection
+* Creating authentication and authorization
+* Designing responsive Razor Views
+* Managing database migrations
+* Using Git and GitHub for version control
+
+---
+
+## 👨‍💻 Author
 
 **Lokesh Ambati**
 
 Aspiring Software Engineer | .NET Full Stack Developer
 
-GitHub:
+### GitHub
+
 https://github.com/Ambati01
 
-LinkedIn:
+### LinkedIn
+
 https://www.linkedin.com/in/lokesh-ambati-b771b4267/
 
 ---
 
-# ⭐ Support
+## ⭐ If you found this project useful
 
-If you found this project useful, please consider giving it a ⭐ on GitHub.
+Feel free to explore the repository and provide feedback.
 
-Thank you for visiting this repository!
+**Thank you for visiting my project!** 🩸
