@@ -267,39 +267,55 @@ Administrative features are protected using role-based authorization.
 
 ### 📊 Dashboard
 
-![Dashboard](./Screenshots/Dashboard.png)
+![Dashboard](./Screenshots/Dashboard.png.png)
+
+---
 
 ### 👨‍⚕️ Donor List
 
-![Donor List](./Screenshots/DonorList.png)
+![Donor List](./Screenshots/DonorList.png.png)
+
+---
 
 ### ➕ Add Donor
 
-![Add Donor](./Screenshots/AddDonor.png)
+![Add Donor](./Screenshots/AddDonor.png.png)
+
+---
 
 ### ✏️ Edit Donor
 
-![Edit Donor](./Screenshots/EditDonor.png)
+![Edit Donor](./Screenshots/EditDonor.png.png)
+
+---
 
 ### 🩸 Blood Stock
 
-![Blood Stock](./Screenshots/BloodStock.png)
+![Blood Stock](./Screenshots/BloodStock.png.png)
+
+---
 
 ### ➕ Add Blood Stock
 
-![Add Blood Stock](./Screenshots/AddBloodStock.png)
+![Add Blood Stock](./Screenshots/AddBloodStock.png.png)
+
+---
 
 ### 📋 Blood Request
 
-![Blood Request](./Screenshots/BloodRequest.png)
+![Blood Request](./Screenshots/BloodRequest.png.png)
+
+---
 
 ### ➕ Add Blood Request
 
-![Add Blood Request](./Screenshots/AddBloodRequest.png)
+![Add Blood Request](./Screenshots/AddBloodRequest.png.png)
+
+---
 
 ### 🗑️ Delete Confirmation
 
-![Delete Confirmation](./Screenshots/DeleteConfirmation.png)
+![Delete Confirmation](./Screenshots/DeleteConfirmation.png.png)
 
 ---
 
