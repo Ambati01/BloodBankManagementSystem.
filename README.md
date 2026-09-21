@@ -267,39 +267,39 @@ Administrative features are protected using role-based authorization.
 
 ### 📊 Dashboard
 
-![Dashboard](Screenshots/Dashboard.png)
+![Dashboard](./Screenshots/Dashboard.png)
 
 ### 👨‍⚕️ Donor List
 
-![Donor List](Screenshots/DonorList.png)
+![Donor List](./Screenshots/DonorList.png)
 
 ### ➕ Add Donor
 
-![Add Donor](Screenshots/AddDonor.png)
+![Add Donor](./Screenshots/AddDonor.png)
 
 ### ✏️ Edit Donor
 
-![Edit Donor](Screenshots/EditDonor.png)
+![Edit Donor](./Screenshots/EditDonor.png)
 
 ### 🩸 Blood Stock
 
-![Blood Stock](Screenshots/BloodStock.png)
+![Blood Stock](./Screenshots/BloodStock.png)
 
 ### ➕ Add Blood Stock
 
-![Add Blood Stock](Screenshots/AddBloodStock.png)
+![Add Blood Stock](./Screenshots/AddBloodStock.png)
 
 ### 📋 Blood Request
 
-![Blood Request](Screenshots/BloodRequest.png)
+![Blood Request](./Screenshots/BloodRequest.png)
 
 ### ➕ Add Blood Request
 
-![Add Blood Request](Screenshots/AddBloodRequest.png)
+![Add Blood Request](./Screenshots/AddBloodRequest.png)
 
 ### 🗑️ Delete Confirmation
 
-![Delete Confirmation](Screenshots/DeleteConfirmation.png)
+![Delete Confirmation](./Screenshots/DeleteConfirmation.png)
 
 ---
 
